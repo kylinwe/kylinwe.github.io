@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前端基础知识</title>
+	<link rel="stylesheet" type="text/css" href="base.css">
+</head>
+<body>
+	<section class="base-header">
+	      <h2 class="base-title">基础知识</h2>
+	</section>
+	<section class="base-content">
+		<h1>html</h1>
+		<div class="base-pra">
+			<h2>基础</h2>
+			<div>
+				<h3>html基础结构</h3>
+				<p>
+					1.doctype声明（参考：<a href="http://helius1214.iteye.com/blog/615393" target="_blank">http://helius1214.iteye.com/blog/615393</a>）
+					<br />
+					参考：http://helius1214.iteye.com/blog/615393
+					文档类型说明，用来指出用的XHTML或者HTML是哪一个版本，浏览器该用什么规则来解释文档中的标记,即浏览器的不同呈现模式（standards标准模式和quirks兼容模式）。
+					HTML5不基于SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为。Standard Generalized Markup Language标准通用标记语言，是一种定义电子文档结构和描述其内容的国际标准语言，是所有电子文档标记语言的起源。
+					不同网页的不同呈现模式 
+　 　现代浏览器包括不同的呈现模式，目的是既支持遵循标准的网页，也支持为老式浏览器而设计的网页。其中， Standards （标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，而 Quirks （包容）模式（也就是松散呈现模式或者兼容模式）用于呈现为传统浏览器而设计的网页。另外，注意Mozilla/Netscape 6新增了一种 Almost Standards （近似标准）模式，用于支持为标准的某个老版本而设计的网页。
+					2.head标签
+					head标签常用的标签主要包含的有：
+meta标签：此标签包含量广，如网页关键词、网页内容的介绍、网页编码声明、网页自动跳转等作用。<a href="http://www.cnblogs.com/moyingliang/p/5748043.html"></a>
+title标签：head标签中的唯一元素，定义网页的标题，并做为网页中的名称显示在浏览器窗口的最顶端。
+base标签：网页默认打开方式声明，必须写在head标签中。
+link标签：主要用于引用外部css文件、js文件、favicon.ico图标等作用。
+script标签：插入脚本，用于引用外部的js文件。
+style标签：用于嵌入网页js文件及CSS样式。
+				</p>
+			</div>
+			<div>
+				<h3>常用标签</h3>
+				<p>
+					行内标签：img,a,br,input,label,em,span
+					块级标签：p,ul,table,h1,form,div,ol
+					<a href="http://www.cnblogs.com/yujinwang/p/4105411.html">行级与块级标签</a>
+					<a href="http://www.360doc.com/content/14/0406/11/5739036_366737839.shtml">常用标签</a>
+				</p>
+			</div>
+			<div>
+				<h3>浏览器常用接口</h3>
+				<p>
+					<a href="http://blog.csdn.net/jalja365/article/details/39290035">常用接口</a>
+				</p>
+			</div>
+		</div>
+		<div class="base-pra">
+			<h2>进阶</h2>
+			<ul>
+				<li>
+					<div>
+						<h3>浏览器跨域问题</h3>
+						<p>
+						<a href="http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html">参考</a>
+						<a href="http://blog.csdn.net/joyhen/article/details/21631833">参考2</a>
+							js跨域是因为同源策略导致的。解决方法有：
+
+图像Ping：使用img标签，因为网页可以从任何网页中加载图片，而不用担心跨域。请求数据通过字符串形式发送，而响应可以是任何内容。这种方法，1）只能发送get请求。2）浏览器无法获取响应数据。3）只适用于浏览器与服务器之间的单向通信
+JSONP：通过动态script元素使用，使用时为src指定一个跨域url。有两部分：1）回调函数：响应到来时在页面中使用；2）数据：传入回调函数中的JSON数据
+后台代理方法：将后台作为代理，每次对其它域的请求转交给本域的后台，本域的后台通过模拟http请求去访问其它域，再将返回的结果返回给前台
+设置document.domain：只适用于主域相同子域不同
+使用window.name：+iframe。应用页面创建iframe，src指向数据页面；数据页面把数据附加到window.name上；应用界面监听iframe的onload事件，在此事件中设置这个iframe的src指向本地域的代理文件；获取数据后销毁iframe
+使用html5新方法：window.postMessage(message, targetOrigin)
+						</p>
+					</div>
+				</li>
+				<li>
+					<div>
+						<h3>html5</h3>
+						<p>
+							<a href="http://www.runoob.com/html/html5-intro.html">html5教程</a>
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h1>css</h1>
+			<div class="base-pra">
+				<h2>基础</h2>
+				<div>
+					<h3>div布局</h3>
+					<p>
+						把页面的内容分成一个个的div，然后将其进行排列构成页面布局
+						<a href="#">html5教程</a>
+					</p>
+				</div>
+				<div>
+					<h3>flex</h3>
+					<p>
+						<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool">flex</a>
+					</p>
+				</div>
+				<div>
+					<h3>使用border绘制各种图形</h3>
+					<p>
+						<a href="http://www.manongjc.com/article/86.html">border</a>
+					</p>
+				</div>
+				<div>
+					<h3>水平居中</h3>
+					<p>
+						<a href="http://www.cnblogs.com/JuFoFu/p/4450162.html">水平居中</a>
+					</p>
+				</div>
+				<div>
+					<h3>垂直居中</h3>
+					<p>
+						<a href="http://www.cnblogs.com/JuFoFu/p/4450162.html">垂直居中</a>
+					</p>
+				</div>
+				<div>
+					<h3>浮动</h3>
+					<p>
+						<a href="http://www.cnblogs.com/polk6/archive/2013/07/25/3142187.html">浮动</a>
+					</p>
+				</div>
+				<div>
+					<h3>Less</h3>
+					<p>
+						1.变量  
+						2.混合（可以将定义好的类引入其他的类里面）
+						3.嵌套（一个选择器嵌套另一个选择器）
+						4.函数和运算
+						<a href="http://www.1024i.com/demo/less/">less教程</a>
+					</p>
+				</div>
+				<div>
+					<h3>Sass</h3>
+					<p>
+						<a href="http://www.runoob.com/html/html5-intro.html">html5教程</a>
+					</p>
+				</div>
+			</div>
+			<div class="base-pra">
+				<h2>进阶</h2>
+				<div>
+					<h3>css书写规范</h3>
+					<p>
+						<a href="http://www.shejidaren.com/css-written-specifications.html">书写规范</a>
+					</p>
+				</div>
+				<div>
+					<h3>css3新特性</h3>
+					<p>
+						<a href="http://www.ibm.com/developerworks/cn/web/1202_zhouxiang_css3/">css3新特性</a>
+					</p>
+				</div>
+				<div>
+					<h3>css3效果</h3>
+					<p>
+						1.border-radius
+						2.box-shadow
+						3.@font-face：自定义字体
+						4.渐变：background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#2A8BBE),to(#FE280E));
+						<a href="http://www.ruanyifeng.com/blog/2010/03/cross-browser_css3_features.html">效果</a>
+					</p>
+				</div>
+				<div>
+					<h3>css3动画</h3>
+					<p>
+						1.transition
+						2.animation
+						<a href="http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html">动画</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div>
+			<h1>js</h1>
+			<div class="base-pra">
+				<h2>基础</h2>
+				<div>
+					<h3>基础知识</h3>
+					<p>
+						<a href="http://blog.csdn.net/hewei0241/article/details/8175908">参考</a>
+					</p>
+				</div>
+				<div>
+					<h3>function</h3>
+					<p>
+					    1.this调用（指的就是调用函数的那个对象）
+						<a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">参考</a>
+						2.原型链
+						<a href="http://www.108js.com/article/article1/10201.html?id=1092">参考</a>
+						3.闭包
+						<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">参考</a>
+					</p>
+				</div>
+				<div>
+					<h3>作用域</h3>
+					<p>
+						<a href="http://blog.csdn.net/hewei0241/article/details/8175908">参考</a>
+						<a href="http://blog.csdn.net/yueguanghaidao/article/details/9568071">参考2</a>
+					</p>
+				</div>
+			</div>
+			<div class="base-pra">
+				<h2>进阶</h2>
+				<div>
+					<h3>模块化编程</h3>
+					<p>	
+					<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html">模块的写法</a>
+
+					<a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html">AMD规范</a>
+
+					<a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html">require.js</a>
+					</p>
+				</div>
+				<div>
+					<h3>异步编程</h3>
+					<p>	
+					<a href="http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript">异步编程的四种方法</a>
+					<a href="http://www.ruanyifeng.com/blog/2011/08/a_detailed_explanation_of_jquery_deferred_object.html">deffered对象</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div>
+			<h1>http协议</h1>
+			<div class="base-pra">
+				<h2>基础</h2>
+			</div>
+			<div class="base-pra">
+			<h2>进阶</h2>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
