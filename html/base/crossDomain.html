@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>浏览器跨域问题</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/templatemo-style.css">
+        <link rel="stylesheet" type="text/css" href="../../sass/main.css">
+        <script src="../../lib/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <div class="responsive-header visible-xs visible-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-section">
+                            <div class="profile-image">
+                                <img src="../../img/author.jpg" alt="Kylin">
+                            </div>
+                            <h3 class="profile-title">卡戎</h3>
+                            <p class="profile-description">Kylin</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+                <div class="main-navigation responsive-menu">
+                    <ul class="navigation">
+                        <li><a href="../../html/base.html"><i class="fa fa-pencil"></i>HTML</a></li>
+                        <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                        <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                        <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		
+        <!-- SIDEBAR -->
+        <div class="sidebar-menu hidden-xs hidden-sm">
+            <div class="top-section">
+                <div class="profile-image">
+                    <img src="../../img/author.jpg" alt="Kylin">
+                </div>
+                <h3 class="profile-title">卡戎</h3>
+                <p class="profile-description">Kylin</p>
+            </div> <!-- top-section -->
+            <div class="main-navigation">
+                <ul class="navigation">	
+                    <li><a href="../../html/base.html#"><i class="fa fa-pencil"></i>HTML</a></li>
+                    <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                    <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                    <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                </ul>
+            </div> <!-- .main-navigation -->
+        </div> <!-- .sidebar-menu -->
+    	
+        <div class="banner-bg" id="top">
+            <div class="banner-overlay"></div>
+            <div class="welcome-text">
+                <p>
+如果在A网站中，我们希望使用Ajax来获得B网站中的特定内容,如果A网站与B网站不在同一个域中，那么就出现了跨域访问问题。Ajax的跨域访问问题是现有的Ajax开发人员比较常遇到的问题，一般都会用jsoncallback方法来解决。你可以理解为两个域名之间不能跨过域名来发送请求或者请求数据，否则就是不安全的。
+		<br/>
+		关于CSRF攻击，下面这篇博客有详细介绍
+		http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html
+		<br/>
+		一.CSRF是什么？
+		<br/>
+　　CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也被称为：one click attack/session riding，缩写为：CSRF/XSRF。
+<br/>
+二.CSRF可以做什么？
+<br/>
+　　你这可以这么理解CSRF攻击：攻击者盗用了你的身份，以你的名义发送恶意请求。CSRF能够做的事情包括：以你名义发送邮件，发消息，盗取你的账号，甚至于购买商品，虚拟货币转账......造成的问题包括：个人隐私泄露以及财产安全。
+<br/>
+三.CSRF漏洞现状
+<br/>
+　　CSRF这种攻击方式在2000年已经被国外的安全人员提出，但在国内，直到06年才开始被关注，08年，国内外的多个大型社区和交互网站分别爆出CSRF漏洞，如：http://NYTimes.com（纽约时报）、Metafilter（一个大型的BLOG网站），YouTube和百度HI......而现在，互联网上的许多站点仍对此毫无防备，以至于安全业界称CSRF为“沉睡的巨人”。
+<br/>
+四.CSRF的原理
+<br/>
+　　下图简单阐述了CSRF攻击的思想：
+<img src="../../img/csrf.jpg" width="900px" heigth="100%" />
+<br/>
+                	<a href="http://blog.csdn.net/joyhen/article/details/21631833">跨域解决方案</a>
+                </p>
+            </div>
+        </div>
+        <script src="../../lib/vendor/jquery-1.10.2.min.js"></script>
+        <script src="../../lib/min/plugins.min.js"></script>
+        <script src="../../lib/min/main.min.js"></script>
+
+    </body>
+</html>
