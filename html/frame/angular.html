@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Angular框架</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/templatemo-style.css">
+        <link rel="stylesheet" type="text/css" href="../../sass/main.css">
+        <script src="../../lib/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <div class="responsive-header visible-xs visible-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-section">
+                            <div class="profile-image">
+                                <img src="../../img/author.jpg" alt="Kylin">
+                            </div>
+                            <h3 class="profile-title">卡戎</h3>
+                            <p class="profile-description">Kylin</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+                <div class="main-navigation responsive-menu">
+                    <ul class="navigation">
+                        <li><a href="../base.html"><i class="fa fa-pencil"></i>HTML</a></li>
+                        <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                        <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                        <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		
+        <!-- SIDEBAR -->
+        <div class="sidebar-menu hidden-xs hidden-sm">
+            <div class="top-section">
+                <div class="profile-image">
+                    <img src="../../img/author.jpg" alt="Kylin">
+                </div>
+                <h3 class="profile-title">卡戎</h3>
+                <p class="profile-description">Kylin</p>
+            </div> <!-- top-section -->
+            <div class="main-navigation">
+                <ul class="navigation">
+                    <li><a href="../base.html"><i class="fa fa-pencil"></i>HTML</a></li>
+                    <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                    <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                    <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                </ul>
+            </div> <!-- .main-navigation -->
+        </div> <!-- .sidebar-menu -->
+    	
+        <div class="banner-bg" id="top">
+            <div class="banner-overlay"></div>
+            <div class="welcome-text">
+                <p>
+                   <a href=""></a>
+                   Angular介绍<br />
+库和框架的区别<br />
+jQuery：库<br />
+库一般都是封装了一些常用的方法,自己手动去调用这些方法，来完成我们的功能
+code $('#txt').val('我是小明'); $('div').text('xx');<br />
+angular：框架<br />
+框架都是提供一种规范或者模式,我们却要按照它提供的这种规则去写代码,框架会自动帮助我们去执行相应的代码.其实可以简单的理解为：大而全的是框架，小而精的是库<br />
+AngularJs是什么<br />
+一款非常优秀的前端高级 JS 框架,最早由 Misko Hevery 等人创建.2009年被Google公式收购，用于其多款产品
+目前有一个全职的开发团队继续开发和维护这个库,其核心就是通过指令扩展了 HTML，通过表达式绑定数据到 HTML。Angular不推崇DOM操作，也就是说在NG中几乎找不到任何的DOM操作,angular，几乎不会使用angualr操作dom（但是angular内部肯定是使用dom来改变页面的值）,Angular主要是来做什么的，帮助我们方便的去写spa应用程序.什么是AngularJS？一个前端框架，提供一种无DOM操作的编程方式，在前端页面中引入了传统在后台开发中使用的一些思想，增强代码的结构和可维护性，一个功能非常完备的前端框架，通过增强HTML的方式提供一种便捷开发Web应用程序的方式，其核心特点就是几乎无任何DOM操作，让开发人员的精力和时间全部集中于业务
+MVC的特性增强了代码的结构和可维护性，应对需求的变化做出最小的改动。<br />
+什么是 SPA<br />
+single page application的缩写，单页应用程序原理就是：通过监视hashchange事件，根据不同的url中的锚点值，去动态的发送ajax请求去请求数据（简单的说就是不会看到页面刷新）。
+<br />
+SPA的优点<br />
+
+响应效果好，体验好<br />
+重用资源<br />
+方便统一控制和代码重用，不想访问应用了，在入口的控制一下就可以。<br />
+扩展：如何获取url中的各部分参数，比如hash<br />
+
+字符串操作<br />
+正则表达式去匹配url<br />
+创建a对象<br />
+var a=document.createElement('a');<br />
+a.hreg='http://www.baidu.com?id=23#home';<br />
+a.pathname<br />
+a.hash<br />
+a.search<br />
+为什么要学Angular<br />
+主要是为了就业，出去之后立马就能找到工作，新的技术在中国市场推广开来，还是需要一定时间的
+<br />
+为什么要使用Angular<br />
+总结一句话：为了更少的代码，实现更强劲的功能。很多操作都需要dom操作，但是angular中没有那么多的dom操作，这是因为angular帮我们封装了，减少了我们开发人员的dom操作，一般在angular中就不会出现jquery了，因为这两种思想正好是相悖的。<br />
+上面的意义只是皮毛，它真正的意义是:angular又是一场革命，带领前端进入了MVX时代。这就像从手工业转为机械工业一样，以前很多东西都是我么你自己手动去做，现在我们有了gulp，webpack这些自动化构建工具。<br />
+Angular 核心概念<br />
+模块化，MVC - 思想
+<br />
+根据不同的功能划分不同的模块。
+创建一个模块
+语法： angular.module('模块名',[])
+第二个参数是个数组,这个数组里的每一个元素，是我们当前模块依赖的其他模块。注意:即便我们不依赖其他的模块，也需要传递一个空数组。因为如是不传第二个参数的话，这个方法的作用就会变为获取一个名为"模块名"的模块对象angular.module('myApp'),是获取一个名为myApp的模块对象。我们需要给ng-app指令一个属性值，这个值就是我们创建的模块名:告诉anuglar,现在由我们自己创建的这个模块来管理页面。
+<br />
+angular.controller（控制器）。<br />作用：为应用中的模型设置初始状态，通过$scope对象把数据模型或者函数行为暴露给视图，监视模型的变化，做出相应的动作
+<br />
+控制器是通过模块对象来创建的:<br />
+语法:<br />
+var app = angular.module('模块名',[])<br />
+app.controller('控制器的名字',function($scope){ // 在这个function里写我们具体想要执行的代码 // <br />$scope 就是用来存储我们的数据模型. })<br />
+
+我们需要在页面上使用了数据模型的元素父级元素上加上ng-controller指令，并给这个指令一个属性值，这个值就是我们创建的控制器名字。
+
+双向数据绑定(双向数据绑定)<br />
+页面文本框的值改变，导致数据模型的值发生改变，数据模型的值的改变，反过来导致页面文本框的值的改变，这种相互影响的关系，我们起了个名词，叫作双向数据绑定。<br />
+
+什么是 MVC 思想<br />
+
+将应用程序的组成划分为三个部分：Model View Controller<br />
+模型：数据处理<br />
+视图：以友好的方式向用户展示数据<br />
+控制器：业务逻辑处理<br />
+控制器的作用就是初始化模型用的；<br />
+模型就是用于存储数据的,做一些业务逻辑的操作。<br />
+视图用于展现数据<br />
+
+用MVC构建应用的优势<br />
+<br />
+剥离开视图和逻辑之间的关系，无论怎么修改dom操作都不用修改业务逻辑代码
+请参照资料-备课代码-09-calc2.html理解
+                </p>
+            </div>
+        </div>
+        <script src="../../lib/vendor/jquery-1.10.2.min.js"></script>
+        <script src="../../lib/min/plugins.min.js"></script>
+        <script src="../../lib/min/main.min.js"></script>
+
+    </body>
+</html>

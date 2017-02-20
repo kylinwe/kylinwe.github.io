@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>常用标签</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/templatemo-style.css">
+        <link rel="stylesheet" type="text/css" href="../../sass/main.css">
+        <script src="../../lib/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <div class="responsive-header visible-xs visible-sm">
+    
+        </div>
+        
+        <!-- SIDEBAR -->
+        <div class="sidebar-menu hidden-xs hidden-sm">
+        </div> <!-- .sidebar-menu -->
+        
+        <div class="banner-bg" id="top">
+            <div class="banner-overlay"></div>
+            <div class="welcome-text">
+                <p>
+                   新手学习网站：nodejs.org,www.npmjs.com,github.com,stackoverflow.com<br />
+
+node.js小数位偶数为稳定版本，例如：－0.6.x .
+小数位奇数为测试版本，例如：－0.7.x（功能不稳定，api可能会在正式版本中修改）
+
+nodejs基于commonjs实现了模块管理系统。node中每一个js文件都是一个独立的模块，在其内部不需要有命名空间，不需要担心变量的污染.<br>
+
+核心模块，本地模块（文件模块），npm的第三方模块。<br>
+模块的引用：1，路径引用模块，2，文件名引用模块。<br>
+名称引用非核心模块时node.js会把文件名映射到对应的模块引用的路径。
+包含核心函数的核心模块在node启动时预先加载，非核心以及第三方模块之后加载。<br>
+
+模块流程<br>
+模块化：给每个对象新建一个单独的js，在里面对该对象属性方法进行定义，通过exports将该对象内部的方法属性暴露出来，使得其他对象能够访问，但是在访问之前必须在自身js中通过require引入该模块。<br>
+
+用于URL的解析<br>
+URL.parse(参数1，参数2，参数3);<br>
+参数1为URL地址;参数2为true，则将query解析为对象；参数3为true，则可以正确解析不带协议的url。<br>
+
+1.query.stringify({url,from:参数}，'&','=')第二个参数表示url中的参数通过什么字符连接，第三个参数表示url中的参数值是通过什么字符赋值，上面为默认值<br>
+2.同理query.parse('数据','&','=')做传化成url的时候，用处与上面一样;
+escape和unescape 转译和反转译<br>
+                </p>
+            </div>
+        </div>
+        <script src="../../lib/vendor/jquery-1.10.2.min.js"></script>
+        <script src="../../lib/min/plugins.min.js"></script>
+        <script src="../../lib/min/main.min.js"></script>
+
+    </body>
+</html>

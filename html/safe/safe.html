@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>前端性能优化</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/templatemo-style.css">
+        <link rel="stylesheet" type="text/css" href="../../sass/main.css">
+        <script src="../../lib/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <div class="responsive-header visible-xs visible-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-section">
+                            <div class="profile-image">
+                                <img src="../../img/author.jpg" alt="Kylin">
+                            </div>
+                            <h3 class="profile-title">卡戎</h3>
+                            <p class="profile-description">Kylin</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+                <div class="main-navigation responsive-menu">
+                    <ul class="navigation">
+                        <li><a href="../base.html"><i class="fa fa-pencil"></i>HTML</a></li>
+                        <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                        <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                        <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		
+        <!-- SIDEBAR -->
+        <div class="sidebar-menu hidden-xs hidden-sm">
+            <div class="top-section">
+                <div class="profile-image">
+                    <img src="../../img/author.jpg" alt="Kylin">
+                </div>
+                <h3 class="profile-title">卡戎</h3>
+                <p class="profile-description">Kylin</p>
+            </div> <!-- top-section -->
+            <div class="main-navigation">
+                <ul class="navigation">
+                    <li><a href="../base.html"><i class="fa fa-pencil"></i>HTML</a></li>
+                    <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                    <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                    <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                </ul>
+            </div> <!-- .main-navigation -->
+        </div> <!-- .sidebar-menu -->
+    	
+        <div class="banner-bg" id="top">
+            <div class="banner-overlay"></div>
+            <div class="welcome-text">
+                <p>
+                   1、AJAX？<br />
+（1）什么是AJAX：
+Ajax：Ajax是Asynchronous JavaScript+XML的简写，是一种可以在不重新加载整个网页的情况下更新部分网页的技术， 使用Ajax能够向服务器请求额外的数据而无须卸载页面<br />
+
+（2）Ajax的核心：<br />
+Ajax的核心是XMLHttpRequest对象（简称XHR），XHR能够以异步方式从服务器获得数据，然后再通过DOM将新数据插入到页面中<br />
+
+（3）Ajax的创建过程：<br />
+a、创建XHR对象（非IE浏览器可以使用new XMLJttpRequest()方式创建，低版本IE浏览器需要使用new ActiveXObject()创建），也就    
+是创建一个异步调用对象<br />
+b、连接和发送：创建一个新的HTTP请求，并制定该HTTP请求的方法，url及验证信息
+      在使用XHR对象时，要调用的第一个方法是open()，它接受3个参数，分别是请求类型，url和是否发送异步请求的布尔值，调用    open()方法并不会真正发送请求，而只是启动一个请求以备发送
+注：请求类型：GET 请求方式是通过URL参数将数据提交到服务器的，POST则是通过将数据作为 send 的参数提交到服务器；
+       url：只能向同一个域中使用相同端口和协议的url发送请求，如果不同，都会引发安全错误.
+       是否发送异步请求：同步：javascript代码会等到服务器响应之后再继续执行.
+                                       异步：可以让javascript继续执行而不必等待响应.<br />
+c、设置响应HTTP请求状态变化的函数：<br />
+     一般在调用open()之前指定readysatatechange事件处理程序
+     可以检测XHR对象的readyState属性，该属性表示请求/响应过程的当前活动阶段，这个属性可取的值如下：<br />
+    0：未初始化，尚未调用open()方法<br />
+    1：启动，已经调用open()方法，但尚未调用send()方法<br />
+    2：发送，已经调用send()方法，但尚未收到响应<br />
+    3：接受，已经接受到部分响应数据<br />
+    4：完成，已经接受的全部响应数据。而且已经可以在客户端使用了<br />
+d、发送HTTP请求：要发送特定的请求，要调用send()方法，调用send()之后，请求就会被分派到服务器<br />
+e、收到响应：在收到响应后，响应的数据会自动填充XHR对象的属性，相关的属性有：<br />
+      responseText：作为响应主题被返回的文本<br />
+      responseXML：响应的内容类型<br />
+      status：响应的HTTP状态<br />
+      statusText：HTTP状态的说明<br />
+在收到响应后，第一步是检查status属性，以确定响应已经成功返回（200为成功标志）<br />
+f、使用JavaScript和DOM实现局部刷新<br />
+
+2、HTTP状态码？<br />
+HTTP状态码是用来表示网页服务器HTTP响应状态的3位数字代码<br />
+（1）1：代表请求已被接受，需要继续处理<br />
+100：这个临时响应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝，客户端应该继续发送请求<br />
+101：服务器已经理解了客户端的请求，并将通过Upgrade 消息头通知客户端采用不同的协议来完成这个请求<br />
+102：代表处理将被继续执行<br />
+（2）2：代表请求已成功被服务器接收、理解并接受<br />
+200：请求已成功，请求所希望的响应头或数据体将随此响应返回<br />
+201：请求已经被实现，而且有一个新的资源已经依据请求的需要而建立，且其 URI 已经随Location 头信息返回<br />
+202：服务器已接受请求，但尚未处理<br />
+203：服务器已成功处理了请求，但返回的实体头部元信息不是在原始服务器上有效的确定集合，而是来自本地或者第三方的拷贝<br />
+204：服务器成功处理了请求，但不需要返回任何实体内容，并且希望返回更新了的元信息<br />
+205：服务器成功处理了请求，且没有返回任何内容<br />
+206：服务器已经成功处理了部分 GET 请求<br />
+207：由WebDAV(RFC 2518)扩展的状态码，代表之后的消息体将是一个XML消息:<br />
+（3）3：代表需要客户端采取进一步的操作才能完成请求，这些状态码一般用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明<br />
+300：被请求的资源有一系列可供选择的回馈信息，每个都有自己特定的地址和浏览器驱动的商议信息<br />
+301：永久重定向，被请求的资源已永久移动到新位置<br />
+302：临时重定向，请求的资源临时从不同的 <br />URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求
+303：对应当前请求的响应可以在另一个 URI 上被找到，而且客户端应当采用 GET 的方式访问那个资源<br />
+304：如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码<br />
+305：被请求的资源必须通过指定的代理才能被访问<br />
+306：在最新版的规范中，306状态码已经不再被使用<br />
+307：请求的资源临时从不同的URI 响应请求<br />
+（4）4：这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理（这类响应有很多种，下面举出几种）<br />
+400：语义有误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求或者请求参数有误<br />
+401：当前请求需要用户验证<br />
+403：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交<br />
+404：请求失败，请求所希望得到的资源未被在服务器上发现<br />
+405：请求行中指定的请求方法不能被用于请求相应的资源<br />
+（5）5，6：这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生（下面举出几种）<br />
+500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理，一般来说，这个问题都会在服务器端的源代码出现错误时出现<br />
+501：当服务器无法识别请求的方法，并且无法支持其对任何资源的请求<br />
+505：服务器不支持，或者拒绝支持在请求中使用的 HTTP 版本<br />
+600：源站没有返回响应头部，只返回实体内容<br />
+
+3、跨域？<br />
+简单来说：跨域访问就是 A 网站的 javascript 代码试图访问B 网站，包括提交内容和获取内容。由于安全原因，跨域访问是被各大浏览器所默认禁止的，默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源一般来说，跨域有以下几种方法<br />
+（1）什么是CORS：<br />
+CORS：定了在必须访问跨域资源时，浏览器与服务器应该如何沟通，主要是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功，还是应该失败
+使用方法：比如一个简单的使用GET或POST发送的请求，它没有自定义的头部，在发送请求时，需要给它附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口），以便服务器根据这个头部信息来决定是否给予响应，如：
+Origin：http://www.nczonline.net
+如果服务器认为这个请求可以接受，就在Access-Control-Allow-Origin头部中回发相同的源信息（如果是公共资源，可以回发"*"），例如：
+Access-Control-Allow-Origin：http://www.nczonline.net
+如果没有这个头部，或者有这个头部但源信息不匹配，浏览器就会驳回请求，正常情况下，浏览器会处理请求.<br />
+
+优点：能支持get和post请求，能判断请求是否成功或失败<br />
+缺点：浏览器支持程度不同<br />
+
+（2）什么是JSONP：<br />
+JSONP：JSONP是填充式JSON或参数式JSON的简写，是应用JSON的一种新方法，JSONP看起来与JSON差不多，只不过是被包含在函数调用中的JSON，如：
+callback({"name":"Nicholas"})；
+JSONP一般由两部分组成：回调函数和数据，回调函数是当响应到来时应该在页面中调用的函数，回调函数的名字一般是在请求中指定的，而数据就是传入回调函数中的JSON数据，下面是一个典型的JSONP请求：
+http://freegeoip.new/json/?callback=handleResponse<br />
+
+JSONP是通过动态script元素来使用的，使用时可以为src属性指定一个跨域url，这里的script元素可以不受限制地从其他域加载资源，因为JSONP是有效的javascript代码，所以在请求完成后，即在JSONP响应加载到页面中以后，就会立即执行，如：<br />
+function handleResponse(response){}
+var script=document.createElement("script");
+script.src="http://freegeoip.net/json/？callback=handleResponse";
+document.body.insertBefore(script,document.body.firstChild)<br />
+为了便于客户端可以传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了<br />
+
+优点：简单易用，能够直接访问响应文本，支持在浏览器与服务器之间双向通信<br />
+缺点：JSONP是从其他域中加载代码执行，如果其他域不安全，很可能在响应中夹带一些恶意代码，并且难以确定JSONP请求是否失败<br />
+
+（3）document.domain+iframe：对于主域相同而子域不同的例子，可以通过设置document.domain的办法来解决
+如：如有两个url：http://www.a.com/a.html和http://script.a.com/b.html
+解决方法：在两个文件中分别加上document.domain = ‘a.com’；然后通过a.html文件中创建一个iframe，去控制iframe的contentDocument，这样两个js文件之间就可以“交互”了<br />
+
+问题：
+安全性，当一个站点（b.a.com）被攻击后，另一个站点（c.a.com）会引起安全漏洞
+如果一个页面中引入多个iframe，要想能够操作所有iframe，必须都得设置相同domain<br />
+
+（4）window.postMessage：<br />
+  在页面中动态生成一个iframe然后设置样式为隐藏不可见，然后再利用h5的postMessage和onmessage这两个api来实现不同源的文档之间的通信，非常方便<br />
+
+（5）window.name：<br />
+和document.domain实现原理差不多，也是通过动态生成一个iframe，window.name跨域利用iframe可以与父文档共享window.name属性实现通信，而document.domain可以修改iframe嵌入的文档的子域名，然后让浏览器认为父文档和iframe是同源（前提是协议和端口，域名一样）<br />
+
+（6）服务器代理 ：<br />
+这种跟前端没什么关系，只不过我们访问一个异源请求的时候，会先通过代理的服务器转发到异源服务器，然后代理服务器再从异源服务器获取到的请求发送给浏览器。由于代理服务器是跟本源服务器是同源的，自然就不会有同源策略的限制<br />
+
+4、HTTP和HTTPS的区别？<br />
+（1）HTTP：超文本传输协议<br />
+HTTPS：安全超文本传输协议，即HTTPS是HTTP的安全版，即在HTTP下加入了SSL层，HTTPS的安全基础是SSL，HTTPS存在不同域HTTP的默认端口及一个加密/身份验证层<br />
+（2）HTTP和HTTPS的不同：<br />
+a、HTTPS需要到CA机构申请证书，一般证书很少免费，需要交费，用于证明服务器用途类型，客户端通过信任证书，从而信任主机<br />
+b、HTTP的端口是80，HTTPS的端口是443<br />
+c、HTTP是超文本传输协议，信息是明文传输，HTTPS 则是具有安全性的SSL加密传输协议<br />
+d、HTTP的链接简单，是无状态的，HTTPS是由SSL+HTTP协议构建的可进行加密传输，身份认证的网络协议，比HTTP安全<br />
+e、HTTP速度比较快，HTTPS速度比较慢<br />
+（3）什么是SSL呢？<br />
+a、SSL是一种在客户端和服务器之间建立安全通信的协议<br /><br />
+b、SSL协议分为密钥协商、数据通信两部分<br />
+c、SSL提供的服务：<br />
+认证用户和服务器<br />
+加密数据防止被窃取<br />
+确保信息完整性（完整性检查）<br />
+（4）为什么HTTPS会比HTTP慢呢？<br />
+a、HTTP和HTTPS都建立在TCP协议之上，HTTP比较单纯，使用三个握手数据包建立连接之后就可以发送内容数据了<br />
+b、HTTPS也采用TCP协议发送数据，也需要3次握手，但在这之后，还有一个SSL握手，会产生SSL延迟<br />
+（5）SSL握手过程：<br />
+a、客户端向服务器传送客户端的SSL版本信息，对称加密算法，密钥交换算法，摘要算法以及其他服务器和客户端之间通讯所需要的各种信息给服务器<br />
+b、服务器根据客户端传来的的算法进行确定利用什么组合来进行通信，并且把SSL 协议的版本号，加密算法的种类，随机数以及其他相关信息，以及自己的证书（名字和公钥）发送给客户端<br />
+c、客户利用服务器传过来的信息验证服务器的合法性，服务器的合法性包括：证书是否过期，发行服务器证书的 CA 是否可靠等，如果合法性验证没有通过，通讯将断开；如果合法性验证通过，将继续进行第四步
+作为可选项，如果服务器需要验证客户端的真实性，也可以发送一个请求，要求客户端提供证书以及其他扩展参数，如果认证不通过，则通信将断开<br />
+d、假设两端经过协商确定了共同的版本和加密套件，则客户端会生成一个秘密消息（对称加密密钥、加密初始化向量、hmac的密钥），并且用B的公钥加密，加密后将消息传递给服务器，<br />
+e、服务器用自己的私钥解密，然后对秘密消息处理生成对称加密密钥、加密初始化向量、hmac的密钥，这时客户端和服务器端之间已经协商好如何对信息进行加密的方法了<br />
+f、客户端和服务器之间利用对称密钥算法进行信息传输<br />
+（6）其它一些注意事项：<br />
+a、对称加密算法是利用相同的密钥进行加密解密<br />
+b、非对称密钥算法是是利用公钥和私钥进行加密解密，如果利用公钥进行加密，那么只能利用私钥进行解密，如果利用私钥进行加密，那么只能利用公钥进行加密<br />
+c、SSL 过程中私钥只有B（服务器）拥有<br />
+d、SSL的过程其实是非对称加密算法与对称加密算法的结合使用，首先利用非对称加密算法协商对称加密算法的密钥，协商完成后再利用对称加密算法进行信息传输<br />
+e、对称加密密钥用于信息加密、加密初始化向量用于分组密文算法、hmac的密钥用于信息完整性检查<br />
+
+5、Web安全？<br />
+（1）Web发展史<br /><br />
+
+（2）Web安全发展史<br />
+
+（3）Web安全的本质
+<br />
+（4）当我们访问一个网址时，发生了什么？<br />
+a、输入网址
+b、浏览器查找域名的IP地址
+c、浏览器给Web服务器发送一个HTTP请求
+d、服务器处理请求
+e、服务器发回一个HTTP响应
+f、浏览器渲染显示HTML
+
+6、前端安全问题？<br />
+
+（1）什么是XSS：<br />
+XSS被称为跨站脚本攻击，XSS主要是指攻击者在页面植入恶意代码，当访问者访问这些页面时，浏览器就会执行攻击者植入的恶意代码，从而达到攻击访问者的目的，而访问者就会被进行身份窃取、钓鱼等，它是一种注入式的攻击方式<br />
+（2）XSS的成因：<br />
+对于用户输入没有严格控制而直接输出到页面，浏览器进行执行和渲染就到导致了问题的产生；对非预期输入的信任，即预期没有想到的，而没有对这些输入进行处理<br />
+（3）XSS的危害：<br />
+a、最常见的弹框
+b、盗取各类用户账号，如机器登录账号、用户网银账号、各类管理员账号
+c、窃取数据
+d、非法转账
+e、挂马（可以挂入恶意代码，利用浏览器的一些漏洞，插入XSS的恶意代码，实现一个挂马的目的）
+以上这些攻击都能在用户没有发觉的情况下进行，如一个网银的网站存在一个XSS，被恶意攻击人植入了恶意的代码，但用户在输入完账号密码登录之后，他可以直接利用你现有登录的情况，发出一个请求，比如说转账，那么就可以把你的钱转走了<br />
+（4）XSS实例：<br />
+修改url参数达到攻击目的<br />
+（5）XSS的分类：<br />
+a、存储型（持久型）：有一个存储的过程（如恶意代码被提交到数据库）
+如：留言板功能：如果留言板的功能存在XSS漏洞，那么攻击者可以将恶意代码提交到数据库，当其他访客访问这个页面时，恶意代码就会被读取，渲染到页面并执行<br />
+
+
+b、反射型（非持久型）：内容直接读取并反射展示在页面上，没有一个存储的过程（常见的是修改get或post请求的参数，主要是由实时提供参数的值反馈出来的，也可以从请求的cookie等做为一个注入点，只要能把恶意代码提交到页面，都可以成为一个XSS的注入点）
+如：搜索功能：关键字为key_pro，并传递了一个恶意代码，这个过程没有经过数据库，而是由服务端进行处理并获取到参数的值，并把这个参数的值处理后展示在页面上<br />
+
+
+c、DOM型：也属于反射型的一种，不过比较特殊，所以一般也当做一种单独类，主要是通过JS修改DOM树
+与反射型的区别：反射型是通过服务端处理请求，然后把内容返回，而DON型是通过浏览器处理请求，然后修改DOM树
+如：在url后面加一个#，并把后面的值起了一个名为document.location.hash，然后将这个值的内容插入到页面
+
+<br />
+（6）其它XSS类别：<br />
+
+mXSS：原本恶意代码无法达到XSS的效果，但是页面中的一些代码做了一些处理，从而导致它产生了变异
+如：script,script src="http://115.20.102.205/19.gy/x.js" ,script经过处理后变成
+       ,script src="http://115/20/102/205/10.gy/x.js ,script<br />
+UXSS：一般是由浏览器的漏洞产生的<br />
+Flash XSS：如页面嵌入了一个Flash，则可以通过某些方法调用页面JS的方法或执行一些url请求
+UTF-7 XSS：UTF-7是一种编码，一般将恶意代码转换成UTF-7的编码再提交到页面，当该页面本身的编码被设置为UTF-7或在IE6，IE7的某些版本会自动识别编码，并进行解码，此时就会触发XSS<br />
+MHTML XSS：只存在于IE低版本<br />
+CSS XSS：主要将恶意代码添加在expression中，只存在于IE低版本<br />
+VBScript XSS：只存在于IE中，主要将Javascript替换成VBScript<br />
+（7）什么是XSS盲打平台与蠕虫：<br />
+XSS盲打平台：XSS盲打指攻击者对数据提交后展现的后台未知情况下的一种XSS攻击方式，因为无法知道是否被成功执行；XSS盲打平台就是为这种方式提供基本平台功能，如xss platform
+如：在一个表单页面提交后返回一个成功页面，此时无法确定XSS是否被成功执行<br />
+XSS蠕虫：利用XSS漏洞，进行自我传播<br />
+XSS蠕虫的原理：存在XSS漏洞才能实现一些功能，利用XSS实现某些操作，比如微博关注用户；实现某些操作的同时，触发蠕虫代码复制和传播，如之前的Samy蠕虫，主要是攻击者在MySpace个人主页上发现了一个XSS漏洞，并写了一段代码，一旦其他用户访问他的个人主页，该用户会自动关注他，并将恶意代码复制到自己主页上，其他用户访问时也会发生同样的事，以此类推，最终给MySpace带来了不少损失<br />
+（8）XSS测试与防御<br />
+XSS辅助工具使用介绍：HackBar（模拟数据请求，可以实时地展现在浏览器中）；TamperData（修改提交的数据）;Fiddler<br />
+XSS攻击的防御：<br />
+a、对用户的输入进行一些过滤和转义；
+过滤：可以提供一个”黑名单“，如对script等关键词进行处理或转义，如html_escape（HTML转义）、javascript_srting_escape（通过js进行处理）、url_escape（进行url编码）、css_string_escape
+设置字符编码和content-type：字符编码（避免如utf-7 XSS等问题）、Content-type（避免如Json的XSS等问题）<br />
+b、HTTP响应头的一些XSS防护指令：<br />
+
+
+CSRF<br />
+（1）什么是CSRF：<br />
+
+CSRF通常是利用用户的点击达到一个触发请求的操作，CSRF同时也是一种对session的利用，通俗的说就是利用被害者的身份去发送请求<br />
+（2）CSRF的原理：<br />
+a、用户主动登录一个网站，在服务器端登录session就会被创建<br />
+b、用户在保持登录状态的情况下访问黑客所构造的网页，如点击了黑客构造的一个链接，就会触发一个CSRF<br />
+c、黑客会利用用户登录的身份状态进行一些相关的请求，做一些用户在登录状态时才可以做的事<br />
+（3）CSRF与XSS的区别：<br />
+XSS：利用对用户输入判断的不严谨然后执行JS语句<br />
+CSRF：通过伪造受信任用户伪造请求<br />
+两者的关系：假如一个站点存在XSS，CSRF可以通过XSS来实现，可以通过XSS操作DOM树来进行一些相关请求
+（4）CSRF的几种常见攻击方式：邮箱链接<br />
+a、HTML CSRF：通过HTML元素发起CSRF请求<br />
+
+post请求：可通过form表单并设置一些参数，在body onload时提交表单<br />
+b、JSON HiJacking<br />
+
+c、Flash CSRF<br />
+
+（5）CSRF的防御方法：<br />
+
+a、通过验证码进行防御：需要人工输入进行操作，从而阻止JS自动执行<br />
+b、检查请求来源：通过检查refer，若不是同个域就阻止操作，在一定程度上可以起到一个防御作用，但是火狐浏览器可以自定义refer<br />
+c、增加请求参数token：可以给所有的请求加上一个token检查，而token是服务器生成的一段字符串，这个token通常会保存在页面中某个隐藏域中<br />
+d、对于任何重要的请求都需要重新验证用户的身份，比如有些修改密码会叫你再输入一遍密码<br />
+
+会话劫持<br />
+（1）什么是http会话：<br />
+a、http会话主要是指客户端和服务器端之间的一个关联关系，服务器会响应多个客户端的HTTP请求，会话就是在多次http连接间维护与同一用户发出的不同请求之间关联信息<br />
+b、会话的特征：<br />
+会话能够把用户与同一用户发出的不同请求之间关联起来。不同用户的会话应当是相互独立的
+会话一旦建立就应当一直存在，直到用户空闲时间超过了某一个时间界限，容器才应当释放该会话资源
+在会话的存活期间，用户可能给服务器发送了很多请求，该用户的这些请求信息都可以存储在会话中
+c、四个过程 ：建立tcp连接 、发出请求文档、发出响应文档、释放tcp连接 <br />
+（2）为什么http会话不安全：<br />
+HTTP会话并不安全。它在经过TCP/IP协议封装传输数据时，在传输的数据的每一个字节中插入一个32位的序列号码，这个序列号用来保持跟踪数据和提供可靠性（序列号是依循数据顺序逐步递增的）。
+第三方攻击者可以通过嗅探的方式来获取用户与服务器通讯中的报文信息，如果他能猜测到数据中的序列号，那便能把合法的用户断开，伪装成合法用户让自己控制后续的通话<br />
+（3）相关防御：<br />
+对于会话劫持的预防，可以走SSH协议、增强网络安全系统健壮性，也可以使用无序的UUID来替代通讯中的序列号码（而非逐步递增）<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+                </p>
+            </div>
+        </div>
+        <script src="../../lib/vendor/jquery-1.10.2.min.js"></script>
+        <script src="../../lib/min/plugins.min.js"></script>
+        <script src="../../lib/min/main.min.js"></script>
+
+    </body>
+</html>

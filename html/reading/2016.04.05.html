@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>常用标签</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/templatemo-style.css">
+        <link rel="stylesheet" type="text/css" href="../../sass/main.css">
+        <script src="../../lib/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <div class="responsive-header visible-xs visible-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-section">
+                            <div class="profile-image">
+                                <img src="../../img/author.jpg" alt="Kylin">
+                            </div>
+                            <h3 class="profile-title">卡戎</h3>
+                            <p class="profile-description">Kylin</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+                <div class="main-navigation responsive-menu">
+                    <ul class="navigation">
+                        <li><a href="../base.html"><i class="fa fa-pencil"></i>HTML</a></li>
+                        <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                        <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                        <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		
+        <!-- SIDEBAR -->
+        <div class="sidebar-menu hidden-xs hidden-sm">
+            <div class="top-section">
+                <div class="profile-image">
+                    <img src="../../img/author.jpg" alt="Kylin">
+                </div>
+                <h3 class="profile-title">卡戎</h3>
+                <p class="profile-description">Kylin</p>
+            </div> <!-- top-section -->
+            <div class="main-navigation">
+                <ul class="navigation">
+                    <li><a href="../base.html"><i class="fa fa-pencil"></i>HTML</a></li>
+                    <li><a href="#css"><i class="fa fa-pencil"></i>CSS</a></li>
+                    <li><a href="#javascript"><i class="fa fa-pencil"></i>JavaScript</a></li>
+                    <li><a href="#http"><i class="fa fa-pencil"></i>HTTP协议</a></li>
+                </ul>
+            </div> <!-- .main-navigation -->
+        </div> <!-- .sidebar-menu -->
+    	
+        <div class="banner-bg" id="top">
+            <div class="banner-overlay"></div>
+            <div class="welcome-text">
+                <p>
+                   一开始制作一个网页时，先分析页面布局。<br />
+自顶向下，逐步细化的页面分析方法。<br />
+盒子的嵌套处理。<br />
+应该边写代码边测试。<br />
+养成写注释的好习惯。<br />
+从外层向内层写。<br />
+div块级元素一定从新一行开始。<br />
+
+css样式表，首先要做的是清除默认属性。<br />
+*{<br />
+     margin:0;<br />
+     padding:0;<br />
+}<br />
+使元素居中的小技巧。<br /><br />
+margin:0 auto;<br />
+
+垂直居中的小技巧。<br />
+height:10px;<br />
+line-height:10px;<br />
+
+设置float之后如果浮动效果有影响，可以使用clear：both来清除浮动。<br />
+
+window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。<br />
+vertical-align 属性设置元素的垂直对齐方式。<br />
+</P>
+<table>
+	<tr>
+    <th>值</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>baseline</td>
+    <td>默认。元素放置在父元素的基线上。</td>
+  </tr>
+  <tr>
+  	<td>sub</td>
+  	<td>垂直对齐文本的下标。</td>
+  </tr>
+  <tr>
+  	<td>super</td>
+  	<td>垂直对齐文本的上标</td>
+  </tr>
+  <tr>
+  	<td>top</td>
+  	<td>把元素的顶端与行中最高元素的顶端对齐</td>
+  </tr>
+  <tr>
+  	<td>text-top</td>
+  	<td>把元素的顶端与父元素字体的顶端对齐</td>
+  </tr>
+  <tr>
+  	<td>middle</td>
+  	<td>把此元素放置在父元素的中部。</td>
+  </tr>
+  <tr>
+  	<td>bottom</td>
+  	<td>把元素的顶端与行中最低的元素的顶端对齐。</td>
+  </tr>
+  <tr>
+  	<td>text-bottom</td>
+  	<td>把元素的底端与父元素字体的底端对齐。</td>
+  </tr>
+  <tr>
+  	<td>%</td>
+  	<td>使用 "line-height" 属性的百分比值来排列此元素。允许使用负值。</td>
+  </tr>
+  <tr>
+  	<td>inherit</td>
+  	<td>规定应该从父元素继承 vertical-align 属性的值。</td>
+  </tr>
+</table>	
+            </div>
+        </div>
+        <script src="../../lib/vendor/jquery-1.10.2.min.js"></script>
+        <script src="../../lib/min/plugins.min.js"></script>
+        <script src="../../lib/min/main.min.js"></script>
+
+    </body>
+</html>
